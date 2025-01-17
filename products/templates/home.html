@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce | Home</title>
+    <link rel="stylesheet" href="{% static 'css/shop_style.css' %}">
+    <style>
+        .main{
+            background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), 
+        url("{%static 'img/gadget_store.jpg' %}");
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+        min-height: 100vh;
+        position: relative; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="container nav">
+            <a href="{% url 'home' %}" class="nav__logo">GadgetHub</a>
+            <ul class="nav__list">
+                <li><a href="{% url 'home' %}" class="nav__link active">Home</a></li>
+                <li><a href="{% url 'shop' %}" class="nav__link">Shop</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <section class="main">
+        <div class="content">
+            <h1>Welcome to Our Store</h1>
+            <p>Your one-stop shop for the best products!</p>
+            <a href="{% url 'shop' %}" class="button">Shop Now</a>
+        </div>
+    </section>
+</body>
+</html>

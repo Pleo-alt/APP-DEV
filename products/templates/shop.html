@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce | Shop</title>
+    <link rel="stylesheet" href="{% static 'css/shop_style.css' %}">
+    <style>
+        .main{
+            background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), 
+        url("{%static 'img/gadget_store.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="container nav">
+            <a href="{% url 'home' %}" class="nav__logo">GadgetHub</a>
+            <ul class="nav__list">
+                <li><a href="{% url 'home' %}" class="nav__link">Home</a></li>
+                <li><a href="{% url 'shop' %}" class="nav__link active">Shop</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main">
+        <div class="content">
+            <h1>Explore Our Latest Gadgets</h1>
+            <div class="product-container">
+                {% for product in products %}
+                <div class="product-card">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                    <div class="product-details">
+                        <p class="product-name">{{ product.name }}</p>
+                        <p class="product-price">₱{{ product.price }}</p>
+                        <a href="{% url 'transaction_complete' product.id %}" class="buy-button">Buy Now</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</body>
+</html>
